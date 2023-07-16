@@ -1,0 +1,46 @@
+linux cmd
+sudo su - ( super user) root
+yum update -y (linux) or  sudo apt-get update (ubuntu)
+how to install nginxserver 
+steps are --- 
+sudo apt-get install nginx -y
+sudo systemctl start nginx.service
+sudo systemctl enable nginx.service
+how to install java jenkins
+steps are for jenkins ---
+sudo apt-get install openjdk-11-jdk
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+sudo systemctl start jenkins.service 
+NOTE -- IF ROOT USER NOT SHOWS CTR+C CMD USE
+sudo ufw allow 8080
+sudo ufw enable 
+sudo ufw status
+NOTE --HOW TO CHECK PORT 8080 BEACUSE WE HAVE TO LUNCH JENKINS ON PUBLIC IP ADD.
+the process start security group in ec2 instance
+alow port 8080 in inbond and out bond rule (for more deatils video.recording )
+----------------------------------------------------------------------------------------------------
+how to host static website in ec2 instatance - Create in Linux machine
+Open new tab - Free CSS on google  chrome 
+select any template  and download thefiles like htmp css etc
+On Linux - systemctl status httpd (Tocheckif  httpdis installedor  not)
+yum install -y httpd
+mkdir temp (make a directory create a temp file)
+cd temp (Go in temp file)
+Copy link address from free css download link
+Wget - (pest the link)
+ls -lrt (Check if its downloaded we will get list of files)
+We will  get zip file copy zip file name and unzip it refer below
+eg - unzip hostit.zip
+ls -lrt
+mv * /var/www/html/
+systemctl enable httpd
+systemctl start httpd
+systemctl status httpd (to check if httpd is running or not )
+cd /var/www/html
+copy public IP address from ec2 linux machine and paste in new incognito mode browser
